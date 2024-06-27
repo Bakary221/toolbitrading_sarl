@@ -5,9 +5,7 @@ const desLivraison =
 const loclisation = "Localisation";
 const desLocalisation = "ToolBiTrading vous retrouve ou que vous soyez.";
 const panier = "Panier";
-const desPanier =
-    "ToolBiTrading vous permet de gérer facilement votre panier via notre application, avec un suivi en temps réel de vos articles et la possibilité de modifier votre commande avant la livraison pour garantir la fraîcheur et la qualité des produits livrés directement à votre porte.";
-
+const desPanier = "ToolBiTrading vous permet de gérer facilement votre panier";
 const appname = "ToolBiTrading";
 const appversion = "Version 1.0.0";
 const credits = "@Bakary Diassy";

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Importation des icônes FontAwesome
+import 'package:toolbitrading/Screens/acceuil/home_page.dart';
 import 'package:toolbitrading/authentification/signup_screen.dart';
 import 'package:toolbitrading/consts/consts.dart'; // Assurez-vous d'avoir les bonnes variables définies ici
 
@@ -19,8 +20,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Connexion'),
-        backgroundColor: Colors.white,
+        title: const Text(
+          'Connexion',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -59,6 +66,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderSide: BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: BorderSide(
+                            color: Colors
+                                .blue, // Bordure bleue quand on tape dedans
+                            width: 2.0,
+                          ),
+                        ),
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 10.0),
                         hintText: 'Entrez votre email',
@@ -90,6 +105,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: BorderSide(
+                            color: Colors
+                                .blue, // Bordure bleue quand on tape dedans
+                            width: 2.0,
+                          ),
                         ),
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 10.0),
@@ -136,6 +159,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ElevatedButton(
                 onPressed: () {
                   // Action pour le bouton de connexion
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue, // Couleur de fond bleue

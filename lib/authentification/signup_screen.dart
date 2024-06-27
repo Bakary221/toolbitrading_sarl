@@ -10,8 +10,14 @@ class SignupScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('S\'inscrire'),
-        backgroundColor: Colors.white,
+        title: const Text(
+          'S\'inscrire',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -54,6 +60,14 @@ class SignupScreen extends StatelessWidget {
                                 borderSide: BorderSide(color: Colors.grey),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                                borderSide: BorderSide(
+                                  color: Colors
+                                      .blue, // Bordure bleue quand on tape dedans
+                                  width: 2.0,
+                                ),
+                              ),
                               contentPadding: EdgeInsets.symmetric(
                                   vertical: 20.0, horizontal: 10.0),
                               hintText: 'Entrez votre nom',
@@ -85,6 +99,14 @@ class SignupScreen extends StatelessWidget {
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.grey),
                                 borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                                borderSide: BorderSide(
+                                  color: Colors
+                                      .blue, // Bordure bleue quand on tape dedans
+                                  width: 2.0,
+                                ),
                               ),
                               contentPadding: EdgeInsets.symmetric(
                                   vertical: 20.0, horizontal: 10.0),
@@ -120,6 +142,14 @@ class SignupScreen extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: BorderSide(
+                            color: Colors
+                                .blue, // Bordure bleue quand on tape dedans
+                            width: 2.0,
+                          ),
+                        ),
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 10.0),
                         hintText: 'Entrez votre email',
@@ -150,6 +180,14 @@ class SignupScreen extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: BorderSide(
+                            color: Colors
+                                .blue, // Bordure bleue quand on tape dedans
+                            width: 2.0,
+                          ),
                         ),
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 10.0),
@@ -182,6 +220,14 @@ class SignupScreen extends StatelessWidget {
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: BorderSide(
+                            color: Colors
+                                .blue, // Bordure bleue quand on tape dedans
+                            width: 2.0,
+                          ),
                         ),
                         contentPadding: EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 10.0),

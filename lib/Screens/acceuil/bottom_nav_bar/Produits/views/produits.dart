@@ -51,13 +51,30 @@ List<Category> categories = [
     products: [
       ProductItem(
         name: 'Sucre blanc',
-        image: carrousel3,
+        image: carrousel2,
         originalPrice: 2.99,
         discountedPrice: 1.99,
       ),
       ProductItem(
         name: 'Sucre brun',
-        image: carrousel1,
+        image: carrousel2,
+        originalPrice: 1.49,
+        discountedPrice: 0.99,
+      ),
+    ],
+  ),
+  Category(
+    name: 'Pain',
+    products: [
+      ProductItem(
+        name: 'Baguette',
+        image: carrousel2,
+        originalPrice: 2.99,
+        discountedPrice: 1.99,
+      ),
+      ProductItem(
+        name: 'Pain brun',
+        image: carrousel2,
         originalPrice: 1.49,
         discountedPrice: 0.99,
       ),
@@ -71,50 +88,99 @@ class ProductsScreen extends StatefulWidget {
 }
 
 class _ProductsScreenState extends State<ProductsScreen> {
+  String? selectedCategory;
+  List<ProductItem> filteredProducts = [];
+
+  @override
+  void initState() {
+    super.initState();
+    filteredProducts = categories.expand((cat) => cat.products).toList();
+  }
+
+  void filterProducts(String? categoryName) {
+    setState(() {
+      if (categoryName == null) {
+        filteredProducts = categories.expand((cat) => cat.products).toList();
+      } else {
+        filteredProducts = categories
+            .firstWhere((category) => category.name == categoryName)
+            .products;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Center(
-          child: Text(
-            'Nos Produits',
-            style: TextStyle(fontWeight: FontWeight.w700, color: Colors.white),
-          ),
+        title: Text(
+          'Nos Produits',
+          style: TextStyle(fontWeight: FontWeight.w700, color: Colors.white),
         ),
       ),
-      body: ListView.builder(
-        itemCount: categories.length,
-        itemBuilder: (context, index) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  categories[index].name,
-                  style: TextStyle(
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width *
+                  0.8, // 80% de la largeur de l'écran
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8.0),
+                border: Border.all(color: Colors.grey),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: DropdownButton<String>(
+                        value: selectedCategory,
+                        hint: Text('Sélectionnez une catégorie'),
+                        onChanged: (value) {
+                          setState(() {
+                            selectedCategory = value;
+                            filterProducts(value);
+                          });
+                        },
+                        items: [
+                          DropdownMenuItem(
+                            child: Text('Toutes les catégories...'),
+                            value: null,
+                          ),
+                          ...categories.map((category) {
+                            return DropdownMenuItem(
+                              child: Text(category.name),
+                              value: category.name,
+                            );
+                          }).toList(),
+                        ],
+                        dropdownColor: Colors.white,
+                        icon: Icon(Icons.arrow_drop_down), // Icone de fleche
+                        isExpanded: true,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(height: 12.0),
-              GridView.builder(
+            ),
+            SizedBox(height: 16.0),
+            Expanded(
+              child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 5.0,
-                  mainAxisSpacing: 5.0,
+                  crossAxisSpacing: 8.0,
+                  mainAxisSpacing: 8.0,
                 ),
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: categories[index].products.length,
-                itemBuilder: (context, productIndex) {
+                itemCount: filteredProducts.length,
+                itemBuilder: (context, index) {
                   return Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey[200], // Couleur de fond grise
+                      color: Colors.grey[50], // Couleur de fond grise
                       borderRadius: BorderRadius.circular(12.0),
                       boxShadow: [
                         BoxShadow(
@@ -133,14 +199,14 @@ class _ProductsScreenState extends State<ProductsScreen> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(6.0),
                             child: Image.asset(
-                              categories[index].products[productIndex].image,
+                              filteredProducts[index].image,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                         SizedBox(height: 8.0),
                         Text(
-                          categories[index].products[productIndex].name,
+                          filteredProducts[index].name,
                           style: TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,
@@ -152,7 +218,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '\$${categories[index].products[productIndex].originalPrice.toStringAsFixed(2)}',
+                              '\$${filteredProducts[index].originalPrice.toStringAsFixed(2)}',
                               style: TextStyle(
                                 decoration: TextDecoration.lineThrough,
                                 color: Colors.grey,
@@ -160,7 +226,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                             ),
                             SizedBox(width: 8.0),
                             Text(
-                              '\$${categories[index].products[productIndex].discountedPrice.toStringAsFixed(2)}',
+                              '\$${filteredProducts[index].discountedPrice.toStringAsFixed(2)}',
                               style: TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.bold,
@@ -174,7 +240,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                           onPressed: () {
                             // Action d'ajout au panier
                             print(
-                                'Ajouter au panier: ${categories[index].products[productIndex].name}');
+                                'Ajouter au panier: ${filteredProducts[index].name}');
                           },
                           icon: Icon(Icons.shopping_cart, color: Colors.white),
                           label: Text(
@@ -196,9 +262,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   );
                 },
               ),
-            ],
-          );
-        },
+            ),
+          ],
+        ),
       ),
     );
   }

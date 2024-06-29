@@ -1,10 +1,14 @@
-allprojects {
+buildscript {
     repositories {
         google()
         mavenCentral()
     }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.0' // Exemple de classpath pour le plugin Android Gradle
+        // Ajoutez d'autres dépendances de classpath selon les besoins
+        classpath 'com.google.gms:google-services:4.4.2' // Correction de syntaxe
+    }
 }
-
 rootProject.buildDir = "../build"
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"

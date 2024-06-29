@@ -70,6 +70,7 @@ class _BottomNavigationBarExampleState
               color: Colors.white,
             ),
             label: 'Produits',
+            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -77,6 +78,7 @@ class _BottomNavigationBarExampleState
               color: Colors.white,
             ),
             label: 'Panier',
+            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -84,6 +86,7 @@ class _BottomNavigationBarExampleState
               color: Colors.white,
             ),
             label: 'Profil',
+            backgroundColor: Colors.blue,
           ),
         ],
         currentIndex: _selectedIndex,

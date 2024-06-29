@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "532255656142",
+    "project_id": "toolbitradingsarl",
+    "storage_bucket": "toolbitradingsarl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532255656142:android:f02c2d413021f672b6e89f",
+        "android_client_info": {
+          "package_name": "com.example.toolbitrading"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB6wo0psAeIGJpF5OIdhU9NcuXsjv4rHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

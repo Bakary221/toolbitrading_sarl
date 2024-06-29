@@ -1,8 +1,8 @@
 //icons
 const splahscreen = "assets/images/logo1.png";
-const onboarding1 = "assets/icons/onboarding1.gif";
-const onboarding2 = "assets/icons/onboarding2.gif";
-const onboarding3 = "assets/icons/onboarding3.gif";
+const onboarding1 = "assets/icons/livraison.png";
+const onboarding2 = "assets/icons/loc.png";
+const onboarding3 = "assets/icons/panier.png";
 
 // carrousel image
 

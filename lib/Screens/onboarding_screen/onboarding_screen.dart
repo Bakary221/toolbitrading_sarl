@@ -70,7 +70,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       width: 10,
                       margin: const EdgeInsets.only(right: 8),
                       decoration: BoxDecoration(
-                        color: _currentPage == index ? vert : Colors.grey,
+                        color: _currentPage == index ? blue : Colors.grey,
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
@@ -88,7 +88,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     }
                   },
                   child: CircleAvatar(
-                    backgroundColor: vert,
+                    backgroundColor: blue,
                     radius: size.width *
                         0.05, // Adaptez la taille du cercle en fonction de la largeur de l'écran
                     child: const Icon(

@@ -30,6 +30,19 @@ class Produits extends StatelessWidget {
         originalPrice: 1.49,
         discountedPrice: 0.99,
       ),
+      ProductItem(
+        name: 'Sel',
+        image: carrousel3,
+        originalPrice: 2.99,
+        discountedPrice: 1.99,
+      ),
+      ProductItem(
+        name: 'Sel',
+        image: carrousel3,
+        originalPrice: 2.99,
+        discountedPrice: 1.99,
+      ),
+
       // Ajoutez d'autres produits selon vos besoins
     ];
 
@@ -59,8 +72,16 @@ class Produits extends StatelessWidget {
               return Container(
                 padding: EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
-                  color: Colors.grey[200],
+                  color: Colors.grey[50],
                   borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,

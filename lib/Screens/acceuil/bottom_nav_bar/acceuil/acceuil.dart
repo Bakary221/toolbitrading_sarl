@@ -3,6 +3,7 @@ import 'package:toolbitrading/Screens/acceuil/bottom_nav_bar/acceuil/views/barre
 import 'package:toolbitrading/Screens/acceuil/bottom_nav_bar/acceuil/views/carrousel_screen.dart';
 import 'package:toolbitrading/Screens/acceuil/bottom_nav_bar/acceuil/views/categories_screen.dart';
 import 'package:toolbitrading/Screens/acceuil/bottom_nav_bar/acceuil/views/produits_screen.dart';
+import 'package:toolbitrading/consts/consts.dart';
 
 class Acceuil extends StatefulWidget {
   const Acceuil({super.key});
@@ -31,7 +32,13 @@ class _AcceuilState extends State<Acceuil> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             buildBarreRecherche(),
-            ImageCarousel(),
+            ImageCarousel(
+              imagePaths: [
+                carrousel1,
+                carrousel2,
+                carrousel3,
+              ],
+            ),
             SizedBox(height: 10),
             Categories(),
             SizedBox(height: 10),
